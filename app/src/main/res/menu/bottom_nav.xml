@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/homeFragment"
+        android:icon="@drawable/ic_recipe"
+        android:title="@string/today"/>
+    <item
+        android:id="@+id/categoriesFragment"
+        android:icon="@drawable/ic_category"
+        android:title="@string/categories"/>
+    <item
+        android:id="@+id/countriesFragment"
+        android:icon="@drawable/ic_countries"
+        android:title="@string/worldwide"/>
+</menu>
