@@ -12,15 +12,21 @@ public class Constants {
     public static final String[] DEFAULT_SEARCH_CATEGORIES =
             {"Barbeque", "Breakfast", "Chicken", "Beef", "Brunch", "Dinner", "Wine", "Italian"};
 
-    public static final String[] DEFAULT_SEARCH_CATEGORY_IMAGES =
+    public static final String[] CATEGORY_IMAGES =
             {
-                    "barbeque",
-                    "breakfast",
-                    "chicken",
-                    "beef",
-                    "brunch",
-                    "dinner",
-                    "wine",
-                    "italian"
+                    "Beef",
+                    "Breakfast",
+                    "Chicken",
+                    "Dessert",
+                    "Goat",
+                    "Lamb",
+                    "Miscellaneous",
+                    "Pasta",
+                    "Pork",
+                    "Seafood",
+                    "Side",
+                    "Starter",
+                    "Vegan",
+                    "Vegetarian"
             };
 }
