@@ -8,7 +8,7 @@ import androidx.annotation.Nullable;
 import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
 
- import androidx.lifecycle.Observer;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -54,6 +54,7 @@ public class HomeFragment extends Fragment {
     private RecyclerView mRecyclerView;
     private ArrayList<Ingredient> mIngredients= new ArrayList<>();
     private YouTubePlayerView youTubePlayerView;
+    public String url;
 
 
 
@@ -186,14 +187,15 @@ public class HomeFragment extends Fragment {
             ingredientsRecyclerAdapter.setIngredient(meal.getIngredients());
 
             String s = meal.getStrYoutube();
-            final String id = s.split("v=")[1];
+            url = s.split("v=")[1];
 
 
             youTubePlayerView.setVisibility(View.VISIBLE);
             youTubePlayerView.addYouTubePlayerListener(new AbstractYouTubePlayerListener() {
                 @Override
                 public void onReady(@NonNull YouTubePlayer youTubePlayer) {
-                    youTubePlayer.loadVideo(id, 0);
+
+                    youTubePlayer.loadVideo(url, 0);
                     youTubePlayer.pause();
                 }
             });

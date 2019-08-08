@@ -21,7 +21,7 @@ public class IngredientHolder extends RecyclerView.ViewHolder {
 
     public IngredientHolder(View ingredientCard) {
         super(ingredientCard);
-        this.ingredientImageView=itemView.findViewById(R.id.ingredientIMG);
+        this.ingredientImageView=itemView.findViewById(R.id.recipeIMG);
         this.measure=itemView.findViewById(R.id.ingredientMeasure);
         this.ingrd=itemView.findViewById(R.id.ingredientTitle);
 

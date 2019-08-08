@@ -145,7 +145,6 @@ public class CountriesFragment extends Fragment {
 
         public void onClicked(View view) {
             Bundle bundle = new Bundle();
-            Log.v("clickedic",view.getId()+"    ");
 
             switch (view.getId()){
 

@@ -24,20 +24,24 @@ public class IngredientsRecyclerAdapter extends RecyclerView.Adapter<IngredientH
 
 
     public IngredientsRecyclerAdapter() {
-        //this.mIngredient = mIngredient;
+
     }
 
     public void setIngredient(ArrayList<Ingredient> mIngredient) {
 
-        Log.v("checkingingred",mIngredient.size()+"  at the starting ");
 
         mIngredientfinal.clear();
         for(int i=0;i<mIngredient.size();i++){
-            if(!mIngredient.get(i).getIngred().isEmpty()){
-                 mIngredientfinal.add(mIngredient.get(i));
+
+            if( mIngredient.get(i).getIngred() != null){
+                if(!mIngredient.get(i).getIngred().isEmpty() ){
+                    mIngredientfinal.add(mIngredient.get(i));
+
+                }
+
+
             }
         }
-        Log.v("checkingingred",mIngredientfinal.size()+"  in the end ");
 
         this.mIngredient = mIngredientfinal;
         notifyDataSetChanged();

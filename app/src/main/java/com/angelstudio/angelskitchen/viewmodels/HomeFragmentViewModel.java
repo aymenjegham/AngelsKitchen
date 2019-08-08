@@ -13,8 +13,7 @@ import java.util.List;
 public class HomeFragmentViewModel extends ViewModel {
 
     private RandomRecipeRepository mRecipeRepository;
-    private String mRecipeId;
-    private boolean mDidRetrieveRecipe;
+     private boolean mDidRetrieveRecipe;
 
     public HomeFragmentViewModel() {
         mRecipeRepository = RandomRecipeRepository.getInstance();
