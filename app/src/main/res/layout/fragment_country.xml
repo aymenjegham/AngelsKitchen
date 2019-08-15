@@ -26,12 +26,12 @@
         android:layout_marginTop="200dp"
         android:layout_marginEnd="64dp"
         android:layout_marginBottom="200dp"
-        android:src="@drawable/sad_angel"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/sad_angel" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview_recipes_area"

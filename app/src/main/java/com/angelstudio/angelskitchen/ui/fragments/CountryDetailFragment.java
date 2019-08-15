@@ -7,9 +7,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -25,7 +25,6 @@ import com.angelstudio.angelskitchen.R;
 import com.angelstudio.angelskitchen.adapters.IngredientsRecyclerAdapter;
 import com.angelstudio.angelskitchen.models.Ingredient;
 import com.angelstudio.angelskitchen.models.Meal;
-import com.angelstudio.angelskitchen.models.Recipe;
 import com.angelstudio.angelskitchen.viewmodels.CountryDetailFragmentViewModel;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
@@ -53,7 +52,7 @@ public class CountryDetailFragment extends Fragment {
     private ArrayList<Ingredient> mIngredients= new ArrayList<>();
     private YouTubePlayerView youTubePlayerView2;
     public String id;
-    public String url;
+    public String url,origin,mealCategory;
 
 
     @Override
@@ -64,10 +63,10 @@ public class CountryDetailFragment extends Fragment {
         recipeIMG=view.findViewById(R.id.recipeIMG);
         categoryIMG=view.findViewById(R.id.categoryIMG);
         countryIMG=view.findViewById(R.id.flagImg);
-        recipeTitle=view.findViewById(R.id.recipeTitle);
+        recipeTitle=view.findViewById(R.id.recipeTitledt);
         categoryTitle=view.findViewById(R.id.categoryTitle);
         mProgressBar = view.findViewById(R.id.progress_bar);
-        mScrollView = view.findViewById(R.id.scroll_view);
+        mScrollView = view.findViewById(R.id.recyclerview_categories);
         ingredientTv=view.findViewById(R.id.ingreditTv);
         instructionsTv=view.findViewById(R.id.instructionsTv);
         instructionView=view.findViewById(R.id.instructionView);
@@ -168,13 +167,14 @@ public class CountryDetailFragment extends Fragment {
             countryIMG.setImageResource(iconResId);
 
 
+            mealCategory=meal.getStrCategory();
             instructionsTv.setText("Instructions");
             ingredientTv.setText("Ingredients");
             videoTv.setText("Video");
             srcTv.setText("Source");
             srcLink.setText(meal.getStrSource());
             recipeTitle.setText(meal.getStrMeal());
-            categoryTitle.setText(meal.getStrCategory());
+            categoryTitle.setText(mealCategory);
             instructionView.setText(meal.getStrInstructions());
 
             mIngredients.clear();
@@ -183,8 +183,7 @@ public class CountryDetailFragment extends Fragment {
 
             String s = meal.getStrYoutube();
             url = s.split("v=")[1];
-            Log.v("checkingurlid","sec: "+url);
-
+            origin=meal.getStrArea();
 
 
 
@@ -193,10 +192,37 @@ public class CountryDetailFragment extends Fragment {
                 @Override
                 public void onReady(@NonNull YouTubePlayer youTubePlayer) {
 
-                    Log.v("checkingurlid","third: "+url);
 
                     youTubePlayer.loadVideo(url, 0);
                     youTubePlayer.pause();
+                }
+            });
+
+            countryIMG.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Bundle bundle = new Bundle();
+                    bundle.putString("COUNTRY", origin);
+                    Navigation.findNavController(v).navigate(R.id.action_countryDetailFragment_to_countryFragment,bundle);
+                }
+            });
+
+
+            categoryIMG.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Bundle bundle = new Bundle();
+                    bundle.putString("ID", mealCategory);
+                    Navigation.findNavController(v).navigate(R.id.action_countryDetailFragment_to_categoryFragment,bundle);
+                }
+            });
+
+            categoryTitle.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Bundle bundle = new Bundle();
+                    bundle.putString("ID", mealCategory);
+                    Navigation.findNavController(v).navigate(R.id.action_countryDetailFragment_to_categoryFragment,bundle);
                 }
             });
 

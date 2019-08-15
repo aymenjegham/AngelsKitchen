@@ -1,5 +1,6 @@
 package com.angelstudio.angelskitchen.requests;
 
+import com.angelstudio.angelskitchen.models.Categories;
 import com.angelstudio.angelskitchen.models.Meals;
 import com.angelstudio.angelskitchen.models.Recipes;
 
@@ -24,6 +25,18 @@ public interface RecipeApi {
     @GET("api/json/v1/1/lookup.php")
     Call<Meals> getRecipeById(
             @Query("i") String id
+
+    );
+
+    //get categories
+    @GET("api/json/v1/1/categories.php")
+    Call<Categories> getCategories();
+
+
+    // GET category recipes
+    @GET("api/json/v1/1/filter.php")
+    Call<Recipes> getRecipesbyCategory(
+            @Query("c") String category
 
     );
 }

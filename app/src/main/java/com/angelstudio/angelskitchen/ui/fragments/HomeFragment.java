@@ -1,15 +1,20 @@
 package com.angelstudio.angelskitchen.ui.fragments;
 
 
-import android.os.Bundle;
+ import android.app.Dialog;
+ import android.graphics.Color;
+ import android.graphics.drawable.ColorDrawable;
+ import android.os.Bundle;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.widget.NestedScrollView;
+ import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
 
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -17,7 +22,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
+ import android.widget.Button;
+ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -54,8 +60,49 @@ public class HomeFragment extends Fragment {
     private RecyclerView mRecyclerView;
     private ArrayList<Ingredient> mIngredients= new ArrayList<>();
     private YouTubePlayerView youTubePlayerView;
-    public String url;
+    private String url,origin,mealCatrgory;
 
+
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        OnBackPressedCallback callback = new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                final Dialog dialog = new Dialog(getContext());
+
+                dialog.setContentView(R.layout.custom_dlg);
+               Button btnYes  =  dialog.findViewById(R.id.button_yes);
+                Button btnNo  =  dialog.findViewById(R.id.button_no);
+                Button btrate  =  dialog.findViewById(R.id.button_rate);
+
+
+                dialog.setTitle("Custom Alert Dialog");
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                dialog.show();
+
+                btnYes.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        getActivity().finish();
+                    }
+                });
+
+                btnNo.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.cancel();
+                    }
+                });
+
+
+            }
+        };
+        requireActivity().getOnBackPressedDispatcher().addCallback(this, callback);
+
+    }
 
 
 
@@ -68,10 +115,10 @@ public class HomeFragment extends Fragment {
        recipeIMG=view.findViewById(R.id.recipeIMG);
        categoryIMG=view.findViewById(R.id.categoryIMG);
        countryIMG=view.findViewById(R.id.flagImg);
-       recipeTitle=view.findViewById(R.id.recipeTitle);
+       recipeTitle=view.findViewById(R.id.recipetitle);
        categoryTitle=view.findViewById(R.id.categoryTitle);
        mProgressBar = view.findViewById(R.id.progress_bar);
-       mScrollView = view.findViewById(R.id.scroll_view);
+       mScrollView = view.findViewById(R.id.recyclerview_categories);
        ingredientTv=view.findViewById(R.id.ingreditTv);
        instructionsTv=view.findViewById(R.id.instructionsTv);
        instructionView=view.findViewById(R.id.instructionView);
@@ -82,15 +129,6 @@ public class HomeFragment extends Fragment {
        getLifecycle().addObserver( youTubePlayerView);
        srcLink=view.findViewById(R.id.srcLink);
        srcTv=view.findViewById(R.id.srcTv);
-
-
-
-
-
-
-
-
-
 
 
         homeFragmentViewModel = ViewModelProviders.of(this).get(HomeFragmentViewModel.class);
@@ -122,8 +160,6 @@ public class HomeFragment extends Fragment {
                     setRecipeProperties(meals.get(0));
                     homeFragmentViewModel.setRetrievedRecipe(true);
 
-
-
                 }
             }
 
@@ -141,7 +177,7 @@ public class HomeFragment extends Fragment {
         });
     }
 
-    private void setRecipeProperties(Meal meal){
+    private void setRecipeProperties(final Meal meal){
         if(meal != null){
             RequestOptions requestOptions = new RequestOptions()
                     .placeholder(R.drawable.angel_2);
@@ -172,6 +208,7 @@ public class HomeFragment extends Fragment {
 
 
             countryIMG.setImageResource(iconResId);
+            mealCatrgory=meal.getStrCategory();
 
 
             instructionsTv.setText("Instructions");
@@ -180,7 +217,7 @@ public class HomeFragment extends Fragment {
             srcTv.setText("Source");
             srcLink.setText(meal.getStrSource());
             recipeTitle.setText(meal.getStrMeal());
-            categoryTitle.setText(meal.getStrCategory());
+            categoryTitle.setText(mealCatrgory);
             instructionView.setText(meal.getStrInstructions());
 
             mIngredients.clear();
@@ -188,6 +225,7 @@ public class HomeFragment extends Fragment {
 
             String s = meal.getStrYoutube();
             url = s.split("v=")[1];
+            origin=meal.getStrArea();
 
 
             youTubePlayerView.setVisibility(View.VISIBLE);
@@ -197,6 +235,33 @@ public class HomeFragment extends Fragment {
 
                     youTubePlayer.loadVideo(url, 0);
                     youTubePlayer.pause();
+                }
+            });
+
+            countryIMG.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Bundle bundle = new Bundle();
+                    bundle.putString("COUNTRY", origin);
+                    Navigation.findNavController(v).navigate(R.id.action_homeFragment_to_countryFragment,bundle);
+                }
+            });
+
+            categoryIMG.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Bundle bundle = new Bundle();
+                    bundle.putString("ID", mealCatrgory);
+                    Navigation.findNavController(v).navigate(R.id.action_homeFragment_to_categoryFragment,bundle);
+                }
+            });
+
+            categoryTitle.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Bundle bundle = new Bundle();
+                    bundle.putString("ID", mealCatrgory);
+                    Navigation.findNavController(v).navigate(R.id.action_homeFragment_to_categoryFragment,bundle);
                 }
             });
 
@@ -220,4 +285,9 @@ public class HomeFragment extends Fragment {
         super.onDestroy();
      }
 
+
 }
+
+
+
+

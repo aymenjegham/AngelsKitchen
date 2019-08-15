@@ -1,6 +1,5 @@
 package com.angelstudio.angelskitchen.holders;
 
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -27,7 +26,7 @@ public class RecipetHolder extends RecyclerView.ViewHolder implements View.OnCli
     public RecipetHolder(View recipeCard,RecyclerViewClickListener listener) {
         super(recipeCard);
         this.recipeImageView=itemView.findViewById(R.id.recipeIMG);
-        this.title=itemView.findViewById(R.id.recipeTitle);
+        this.title=itemView.findViewById(R.id.categoryTitle);
 
         mListener=listener;
 
