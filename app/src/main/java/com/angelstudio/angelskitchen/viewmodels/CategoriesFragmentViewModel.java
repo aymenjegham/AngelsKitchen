@@ -4,11 +4,10 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.angelstudio.angelskitchen.models.Category;
-import com.angelstudio.angelskitchen.models.Recipe;
-import com.angelstudio.angelskitchen.repository.ByAreaRecipesRepository;
-import com.angelstudio.angelskitchen.repository.CategoriesRepository;
+ import com.angelstudio.angelskitchen.repository.CategoriesRepository;
 
 import java.util.List;
+import javax.inject.Inject;
 
 public class CategoriesFragmentViewModel extends ViewModel {
 

@@ -224,7 +224,18 @@ public class HomeFragment extends Fragment {
             ingredientsRecyclerAdapter.setIngredient(meal.getIngredients());
 
             String s = meal.getStrYoutube();
-            url = s.split("v=")[1];
+            String[] parts = s.split("v=");
+            if (parts.length > 1) {
+                url = parts[1];
+                // If there are additional parameters after the ID (like &t=10s),
+                // you might want to split again by "&"
+                if (url.contains("&")) {
+                    url = url.split("&")[0];
+                }
+            } else {
+                // Handle the case where the URL is invalid or in a different format (e.g., youtu.be)
+                url = "";
+            }
             origin=meal.getStrArea();
 
 
