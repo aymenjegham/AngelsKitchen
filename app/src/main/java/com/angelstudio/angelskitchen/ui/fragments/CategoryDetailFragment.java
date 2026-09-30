@@ -136,14 +136,14 @@ public class CategoryDetailFragment extends Fragment {
                     .placeholder(R.drawable.angel_2);
 
 
-            if(meal.getStrCategory().equals("Goat")){
+            if("Goat".equals(meal.getStrCategory())){
                 countryIMG.setImageResource(R.drawable.ic_category);
-            }else if(meal.getStrCategory().equals("Breakfast")){
+            }else if("Breakfast".equals(meal.getStrCategory())){
                 countryIMG.setImageResource(R.drawable.ic_recipe2);
             }else{
                 mUrlCategory="https://www.themealdb.com/images/category/"+meal.getStrCategory()+".png";
             }
-            String mCountry = (meal.getStrArea()).toLowerCase();
+            String mCountry = (meal.getStrArea() != null ? meal.getStrArea().toLowerCase() : "");
             int iconResId = getResources().getIdentifier(mCountry, "drawable",this.getContext().getPackageName());
 
 
@@ -177,8 +177,9 @@ public class CategoryDetailFragment extends Fragment {
             ingredientsRecyclerAdapter.setIngredient(meal.getIngredients());
 
 
-            String s = meal.getStrYoutube();
-            url = s.split("v=")[1];
+            String s = meal.getStrYoutube() != null ? meal.getStrYoutube() : "";
+            String[] parts = s.split("v=");
+            url = parts.length > 1 ? parts[1].split("&")[0] : "";
             origin=meal.getStrArea();
 
 

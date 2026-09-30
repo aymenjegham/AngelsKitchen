@@ -144,198 +144,82 @@ public class CountriesFragment extends Fragment {
     public class MyClickHandlers {
 
         public void onClicked(View view) {
-            Bundle bundle = new Bundle();
+            int id = view.getId();
+            String country = null;
 
-            switch (view.getId()){
-
-                case R.id.Card_ca:
-
-                    bundle.putString("COUNTRY", "canadian");
-                    Navigation.findNavController(view).navigate(R.id.action_countriesFragment_to_countryFragment,bundle);
-                    break;
-
-                case R.id.Card_uk:
-
-                    bundle.putString("COUNTRY", "british");
-                    Navigation.findNavController(view).navigate(R.id.action_countriesFragment_to_countryFragment,bundle);
-                    break;
-
-                case R.id.Card_usa:
-
-                    bundle.putString("COUNTRY", "american");
-                    Navigation.findNavController(view).navigate(R.id.action_countriesFragment_to_countryFragment,bundle);
-                    break;
-
-                case R.id.Card_jam:
-
-                    bundle.putString("COUNTRY", "jamaican");
-                    Navigation.findNavController(view).navigate(R.id.action_countriesFragment_to_countryFragment,bundle);
-                    break;
-
-                case R.id.Card_ch:
-
-                    bundle.putString("COUNTRY", "chinese");
-                    Navigation.findNavController(view).navigate(R.id.action_countriesFragment_to_countryFragment,bundle);
-                    break;
-
-                case R.id.Card_dutch:
-
-                    bundle.putString("COUNTRY", "dutch");
-                    Navigation.findNavController(view).navigate(R.id.action_countriesFragment_to_countryFragment,bundle);
-                    break;
-
-                case R.id.Card_egy:
-
-                    bundle.putString("COUNTRY", "egyptian");
-                    Navigation.findNavController(view).navigate(R.id.action_countriesFragment_to_countryFragment,bundle);
-                    break;
-
-                case R.id.Card_fr:
-
-                    bundle.putString("COUNTRY", "french");
-                    Navigation.findNavController(view).navigate(R.id.action_countriesFragment_to_countryFragment,bundle);
-                    break;
-
-                case R.id.Card_gr:
-
-                    bundle.putString("COUNTRY", "greek");
-                    Navigation.findNavController(view).navigate(R.id.action_countriesFragment_to_countryFragment,bundle);
-                    break;
-
-                case R.id.Card_in:
-
-                    bundle.putString("COUNTRY", "indian");
-                    Navigation.findNavController(view).navigate(R.id.action_countriesFragment_to_countryFragment,bundle);
-                    break;
-
-                case R.id.Card_irl:
-
-                    bundle.putString("COUNTRY", "irish");
-                    Navigation.findNavController(view).navigate(R.id.action_countriesFragment_to_countryFragment,bundle);
-                    break;
-
-                case R.id.Card_it:
-
-                    bundle.putString("COUNTRY", "italian");
-                    Navigation.findNavController(view).navigate(R.id.action_countriesFragment_to_countryFragment,bundle);
-                    break;
-
-                case R.id.Card_jap:
-
-                    bundle.putString("COUNTRY", "japanese");
-                    Navigation.findNavController(view).navigate(R.id.action_countriesFragment_to_countryFragment,bundle);
-                    break;
-
-                case R.id.Card_ken:
-
-                    bundle.putString("COUNTRY", "kenyan");
-                    Navigation.findNavController(view).navigate(R.id.action_countriesFragment_to_countryFragment,bundle);
-                    break;
-
-                case R.id.Card_mal:
-
-                    bundle.putString("COUNTRY", "malaysian");
-                    Navigation.findNavController(view).navigate(R.id.action_countriesFragment_to_countryFragment,bundle);
-                    break;
-
-                case R.id.Card_mex:
-
-                    bundle.putString("COUNTRY", "mexican");
-                    Navigation.findNavController(view).navigate(R.id.action_countriesFragment_to_countryFragment,bundle);
-                    break;
-
-                case R.id.Card_mor:
-
-                    bundle.putString("COUNTRY", "moroccan");
-                    Navigation.findNavController(view).navigate(R.id.action_countriesFragment_to_countryFragment,bundle);
-                    break;
-
-                case R.id.Card_cr:
-
-                    bundle.putString("COUNTRY", "croatian");
-                    Navigation.findNavController(view).navigate(R.id.action_countriesFragment_to_countryFragment,bundle);
-                    break;
-
-                case R.id.Card_nor:
-
-                    bundle.putString("COUNTRY", "norwegian");
-                    Navigation.findNavController(view).navigate(R.id.action_countriesFragment_to_countryFragment,bundle);
-                    break;
-
-                case R.id.Card_por:
-
-                    bundle.putString("COUNTRY", "portuguese");
-                    Navigation.findNavController(view).navigate(R.id.action_countriesFragment_to_countryFragment,bundle);
-                    break;
-
-                case R.id.Card_ru:
-
-                    bundle.putString("COUNTRY", "russian");
-                    Navigation.findNavController(view).navigate(R.id.action_countriesFragment_to_countryFragment,bundle);
-                    break;
-
-                case R.id.Card_arg:
-
-                    bundle.putString("COUNTRY", "argentinian");
-                    Navigation.findNavController(view).navigate(R.id.action_countriesFragment_to_countryFragment,bundle);
-                    break;
-
-                case R.id.Card_sp:
-
-                    bundle.putString("COUNTRY", "spanish");
-                    Navigation.findNavController(view).navigate(R.id.action_countriesFragment_to_countryFragment,bundle);
-                    break;
-
-                case R.id.Card_sl:
-
-                    bundle.putString("COUNTRY", "slovakian");
-                    Navigation.findNavController(view).navigate(R.id.action_countriesFragment_to_countryFragment,bundle);
-                    break;
-
-                case R.id.Card_thai:
-
-                    bundle.putString("COUNTRY", "thai");
-                    Navigation.findNavController(view).navigate(R.id.action_countriesFragment_to_countryFragment,bundle);
-                    break;
-
-                case R.id.Card_viet:
-
-                    bundle.putString("COUNTRY", "vietnamese");
-                    Navigation.findNavController(view).navigate(R.id.action_countriesFragment_to_countryFragment,bundle);
-                    break;
-
-                case R.id.Card_tr:
-
-                    bundle.putString("COUNTRY", "turkish");
-                    Navigation.findNavController(view).navigate(R.id.action_countriesFragment_to_countryFragment,bundle);
-                    break;
-
-                case R.id.Card_syr:
-
-                    bundle.putString("COUNTRY", "syrian");
-                    Navigation.findNavController(view).navigate(R.id.action_countriesFragment_to_countryFragment,bundle);
-                    break;
-
-                case R.id.Card_alg:
-
-                    bundle.putString("COUNTRY", "algerian");
-                    Navigation.findNavController(view).navigate(R.id.action_countriesFragment_to_countryFragment,bundle);
-                    break;
-
-                case R.id.Card_tun:
-
-                    bundle.putString("COUNTRY", "tunisian");
-                    Navigation.findNavController(view).navigate(R.id.action_countriesFragment_to_countryFragment,bundle);
-                    break;
-
+            if (id == R.id.Card_ca) {
+                country = "canadian";
+            } else if (id == R.id.Card_uk) {
+                country = "british";
+            } else if (id == R.id.Card_usa) {
+                country = "american";
+            } else if (id == R.id.Card_jam) {
+                country = "jamaican";
+            } else if (id == R.id.Card_ch) {
+                country = "chinese";
+            } else if (id == R.id.Card_dutch) {
+                country = "dutch";
+            } else if (id == R.id.Card_egy) {
+                country = "egyptian";
+            } else if (id == R.id.Card_fr) {
+                country = "french";
+            } else if (id == R.id.Card_gr) {
+                country = "greek";
+            } else if (id == R.id.Card_in) {
+                country = "indian";
+            } else if (id == R.id.Card_irl) {
+                country = "irish";
+            } else if (id == R.id.Card_it) {
+                country = "italian";
+            } else if (id == R.id.Card_jap) {
+                country = "japanese";
+            } else if (id == R.id.Card_ken) {
+                country = "kenyan";
+            } else if (id == R.id.Card_mal) {
+                country = "malaysian";
+            } else if (id == R.id.Card_mex) {
+                country = "mexican";
+            } else if (id == R.id.Card_mor) {
+                country = "moroccan";
+            } else if (id == R.id.Card_cr) {
+                country = "croatian";
+            } else if (id == R.id.Card_nor) {
+                country = "norwegian";
+            } else if (id == R.id.Card_por) {
+                country = "portuguese";
+            } else if (id == R.id.Card_ru) {
+                country = "russian";
+            } else if (id == R.id.Card_arg) {
+                country = "argentinian";
+            } else if (id == R.id.Card_sp) {
+                country = "spanish";
+            } else if (id == R.id.Card_sl) {
+                country = "slovakian";
+            } else if (id == R.id.Card_thai) {
+                country = "thai";
+            } else if (id == R.id.Card_viet) {
+                country = "vietnamese";
+            } else if (id == R.id.Card_tr) {
+                country = "turkish";
+            } else if (id == R.id.Card_syr) {
+                country = "syrian";
+            } else if (id == R.id.Card_alg) {
+                country = "algerian";
+            } else if (id == R.id.Card_tun) {
+                country = "tunisian";
             }
 
+            if (country != null) {
+                Bundle bundle = new Bundle();
+                bundle.putString("COUNTRY", country);
+                Navigation.findNavController(view).navigate(
+                        R.id.action_countriesFragment_to_countryFragment, bundle);
+            }
         }
     }
 
 
 
 }
-
 
 
