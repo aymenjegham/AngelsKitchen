@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="recipe_today">Today</string>
+    <string name="recipe_today_with_angie">Today with Angie</string>
+    <string name="recipe_pick_tonight">ANGIE\'S PICK TONIGHT</string>
+    <string name="recipe_start_cooking">Start cooking</string>
+    <plurals name="recipe_ingredient_count">
+        <item quantity="one">%d item</item>
+        <item quantity="other">%d items</item>
+    </plurals>
+    <string name="recipe_detail">Recipe</string>
+    <string name="recipe_back">Back</string>
+    <string name="recipe_loading">Loading recipe</string>
+    <string name="recipe_retry">Try again</string>
+    <string name="recipe_error_title">Recipe unavailable</string>
+    <string name="recipe_error_network">Could not connect. Check your connection and try again.</string>
+    <string name="recipe_error_server">The recipe service is unavailable. Please try again.</string>
+    <string name="recipe_error_empty">No recipe was found. Please try again.</string>
+    <string name="recipe_error_argument">This recipe link is invalid. Go back and choose another recipe.</string>
+    <string name="recipe_error_malformed">This recipe could not be read. Please try again.</string>
+    <string name="recipe_untitled">Recipe title unavailable</string>
+    <string name="recipe_photo">Photo of the prepared dish</string>
+    <string name="recipe_photo_loading">Loading recipe photo</string>
+    <string name="recipe_photo_unavailable">Recipe photo unavailable</string>
+    <string name="recipe_category_action">Browse category: %1$s</string>
+    <string name="recipe_cuisine_action">Browse cuisine: %1$s</string>
+    <string name="recipe_ingredients">Ingredients</string>
+    <string name="recipe_ingredients_unavailable">Ingredients are not available for this recipe.</string>
+    <string name="recipe_preparation">Preparation</string>
+    <string name="recipe_preparation_unavailable">Preparation instructions are not available for this recipe.</string>
+    <string name="recipe_video">Video</string>
+    <string name="recipe_play_video">Play video</string>
+    <string name="recipe_source">Read original recipe</string>
+    <string name="recipe_source_action">Read original recipe on %1$s</string>
+</resources>

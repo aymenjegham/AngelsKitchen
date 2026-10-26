@@ -1,0 +1,10 @@
+{
+    "app_dir": "/Users/aymenjegham/AndroidStudioProjects/AngelsKitchen",
+    "app_label": "Angel's Recipe",
+    "foreground_services": [],
+    "package_name": "AngelsKitchen",
+    "permissions": [
+        "android.permission.INTERNET"
+    ],
+    "target_sdk": null
+}

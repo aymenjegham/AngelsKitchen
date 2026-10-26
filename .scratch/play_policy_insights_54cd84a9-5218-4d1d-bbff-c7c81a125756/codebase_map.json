@@ -1,0 +1,12 @@
+{
+    "key_files": {
+        "gradles": [
+            "/Users/aymenjegham/AndroidStudioProjects/AngelsKitchen/build.gradle",
+            "/Users/aymenjegham/AndroidStudioProjects/AngelsKitchen/settings.gradle",
+            "/Users/aymenjegham/AndroidStudioProjects/AngelsKitchen/app/build.gradle"
+        ],
+        "manifests": [
+            "/Users/aymenjegham/AndroidStudioProjects/AngelsKitchen/app/src/main/AndroidManifest.xml"
+        ]
+    }
+}
