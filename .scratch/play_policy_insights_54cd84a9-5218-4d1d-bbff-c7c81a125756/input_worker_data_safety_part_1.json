@@ -1,0 +1,39 @@
+{
+    "APP_DIR": "/Users/aymenjegham/AndroidStudioProjects/AngelsKitchen",
+    "APP_NAME": "Angel's Recipe",
+    "GOAL_NAME": "data_safety_part_1",
+    "PACKAGE_NAME": "AngelsKitchen",
+    "REPO_ROOT": "/Users/aymenjegham/.copilot/skills/play-policy-insights",
+    "TARGET_SDK": null,
+    "TEMP_DIR": "/Users/aymenjegham/AndroidStudioProjects/AngelsKitchen/.scratch/play_policy_insights_54cd84a9-5218-4d1d-bbff-c7c81a125756",
+    "data_sources": {
+        "AUDIO": {
+            "description": "A user\u2019s voice such as a voicemail or a sound recording.",
+            "findings": [
+                "app/src/main/kotlin/com/angelstudio/angelskitchen/data/mapper/RecipeListMapper.kt (Pattern: record)"
+            ]
+        },
+        "MUSIC": {
+            "description": "A user\u2019s music files.",
+            "findings": [
+                "app/src/main/kotlin/com/angelstudio/angelskitchen/data/mapper/RecipeMapper.kt (Pattern: music)"
+            ]
+        }
+    },
+    "disclosure": [
+        "app/src/main/kotlin/com/angelstudio/angelskitchen/ui/navigation/AppNavigation.kt (Pattern: collect)"
+    ],
+    "found_urls": [],
+    "network_transmission": {
+        "-": [
+            "app/src/main/kotlin/com/angelstudio/angelskitchen/ui/recipe/RecipeViewModel.kt (Pattern: fetch)",
+            "app/src/main/kotlin/com/angelstudio/angelskitchen/ui/results/ResultsViewModel.kt (Pattern: fetch)"
+        ]
+    },
+    "requested_permissions": {},
+    "semantic_files": {
+        "VIDEOS": [
+            "RecipeVideo.kt"
+        ]
+    }
+}

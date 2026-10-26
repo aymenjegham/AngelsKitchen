@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.angelstudio.angelskitchen">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
+        android:name=".AngelsKitchenApplication"
         android:allowBackup="true"
         android:icon="@mipmap/angel_2"
         android:label="Angel's Recipe"
         android:roundIcon="@mipmap/angel_2"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <profileable android:shell="true" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

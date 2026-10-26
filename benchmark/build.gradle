@@ -1,0 +1,34 @@
+plugins {
+    alias(libs.plugins.androidBenchmark)
+}
+
+android {
+    namespace "com.angelstudio.angelskitchen.benchmark"
+    compileSdkVersion 37
+    targetProjectPath = ":app"
+    experimentalProperties["android.experimental.self-instrumenting"] = true
+
+    buildTypes {
+        benchmark {
+            initWith debug
+            minifyEnabled false
+            debuggable false
+        }
+    }
+
+    defaultConfig {
+        minSdkVersion 24
+        targetSdkVersion 37
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+}
+
+dependencies {
+    implementation libs.androidxBenchmarkMacro
+    implementation libs.androidxTestExtJunit
+    implementation libs.androidxTestUiAutomator
+    implementation libs.androidxArchCoreRuntime
+    implementation libs.androidxProfileInstaller
+    implementation libs.androidxStartupRuntime
+    implementation libs.errorProneAnnotations
+}

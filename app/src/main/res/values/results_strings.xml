@@ -1,0 +1,23 @@
+<resources>
+    <string name="results_title">Recipes</string>
+    <string name="results_vegan_subtitle">Plant-based, full flavour</string>
+    <string name="results_category_subtitle">Explore %1$s recipes</string>
+    <string name="results_country_subtitle">Explore %1$s cuisine</string>
+    <string name="results_back">Back</string>
+    <string name="results_open_search">Search this recipe list</string>
+    <string name="results_close_search">Close recipe search</string>
+    <string name="results_clear_search">Clear recipe search</string>
+    <string name="results_search_label">Search recipes by name</string>
+    <string name="results_loading">Loading recipes</string>
+    <plurals name="results_count">
+        <item quantity="one">%1$d recipe</item>
+        <item quantity="other">%1$d recipes</item>
+    </plurals>
+    <string name="results_empty">No recipes are available for this selection yet.</string>
+    <string name="results_no_matches">No matching recipes. Try another name.</string>
+    <string name="results_invalid">This selection is missing or invalid. Go back and choose a category or country.</string>
+    <string name="results_network_error">Could not load recipes. Check your connection and try again.</string>
+    <string name="results_server_error">Recipes are temporarily unavailable. Please try again.</string>
+    <string name="results_data_error">The recipe list could not be read. Please try again.</string>
+    <string name="results_retry">Try again</string>
+</resources>

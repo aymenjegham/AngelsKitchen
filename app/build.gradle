@@ -1,4 +1,10 @@
-apply plugin: 'com.android.application'
+plugins {
+    alias(libs.plugins.androidApplication)
+    alias(libs.plugins.kotlinCompose)
+    alias(libs.plugins.kotlinSerialization)
+    alias(libs.plugins.hilt)
+    alias(libs.plugins.ksp)
+}
 
 android {
     namespace "com.angelstudio.angelskitchen"
@@ -6,7 +12,7 @@ android {
     compileSdkVersion 37
     defaultConfig {
         applicationId "com.angelstudio.angelskitchen"
-        minSdkVersion 21
+        minSdkVersion 24
         targetSdkVersion 37
         versionCode 5
         versionName "4.0"
@@ -14,61 +20,62 @@ android {
     }
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        benchmark {
+            initWith release
+            signingConfig signingConfigs.debug
+            matchingFallbacks = ['release']
         }
     }
 
-    dataBinding {
-        enabled = true
+    buildFeatures {
+        compose = true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    testOptions {
+        unitTests.returnDefaultValues = true
     }
 
 }
 
 dependencies {
-    def retrofitVersion = '2.9.0'
-    def lifecycle_version = "2.2.0"
-    def supportVersion = "28.0.0"
-    def glideVersion = "4.9.0"
-    def nav_version = "2.9.3"
-    def dagger_version = "2.28.3"
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation 'androidx.appcompat:appcompat:1.7.1'
-    implementation 'androidx.constraintlayout:constraintlayout:2.2.1'
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    //retrofit
-    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
-    // Retrofit gson converter
-    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
-    // ViewModel and LiveData
-    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
-     // CardViews
-    implementation 'androidx.cardview:cardview:1.0.0'
-    // RecyclerViews
-    implementation 'androidx.recyclerview:recyclerview:1.4.0'
-    // Design Support
-    implementation 'com.google.android.material:material:1.12.0'
-    // Glide
-    implementation "com.github.bumptech.glide:glide:$glideVersion"
-    annotationProcessor "com.github.bumptech.glide:compiler:$glideVersion"
-    // Circle ImageView
-    implementation 'de.hdodenhof:circleimageview:3.0.0'
-    //Navigation
-    implementation "androidx.navigation:navigation-fragment:$nav_version"
-    implementation "androidx.navigation:navigation-ui:$nav_version"
-    //youtube video player
-    implementation 'com.pierfrancescosoffritti.androidyoutubeplayer:core:12.1.2'
-    //grid layout
-    implementation 'androidx.gridlayout:gridlayout:1.1.0'
-
-    //circular image view
-    implementation 'de.hdodenhof:circleimageview:3.0.0'
-
-    implementation "androidx.fragment:fragment:1.8.9"
-
-
-    androidTestImplementation 'androidx.test:rules:1.7.0'
-
-    implementation "com.google.dagger:dagger:$dagger_version"
-
+    implementation libs.hiltAndroid
+    implementation libs.hiltViewmodelCompose
+    ksp libs.hiltCompiler
+    implementation platform(libs.androidxComposeBom)
+    androidTestImplementation platform(libs.androidxComposeBom)
+    implementation libs.androidxComposeMaterial3
+    implementation libs.androidxComposeMaterialIconsCore
+    implementation libs.androidxComposeUiToolingPreview
+    implementation libs.androidxActivityCompose
+    debugImplementation libs.androidxComposeUiTooling
+    implementation libs.androidxLifecycleViewmodelKtx
+    implementation libs.androidxLifecycleViewmodelSavedstate
+    implementation libs.androidxLifecycleRuntimeCompose
+    implementation libs.androidxLifecycleViewmodelCompose
+    implementation libs.androidxLifecycleViewmodelNavigation3
+    implementation libs.androidxNavigation3Runtime
+    implementation libs.androidxNavigation3Ui
+    implementation libs.kotlinxSerializationJson
+    implementation libs.kotlinxCoroutinesAndroid
+    implementation libs.coilCompose
+    testImplementation libs.junit
+    testImplementation libs.kotlinxCoroutinesTest
+    androidTestImplementation libs.androidxTestExtJunit
+    androidTestImplementation libs.androidxTestRunner
+    androidTestImplementation libs.espressoCore
+    androidTestImplementation libs.androidxComposeUiTestJunit4
+    debugImplementation libs.androidxComposeUiTestManifest
+    implementation libs.retrofit
+    implementation libs.retrofitConverterGson
+    implementation libs.youtubePlayerCore
+    implementation libs.androidxProfileInstaller
 }

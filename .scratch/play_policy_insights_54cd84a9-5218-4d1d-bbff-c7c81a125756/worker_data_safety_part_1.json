@@ -1,0 +1,39 @@
+{
+  "domain": "Data Safety and Privacy",
+  "findings": [
+    {
+      "psl_constant": "AUDIO",
+      "policy_id": "data_safety_section",
+      "issue_summary": "Data Safety Compliant (Local-Only)",
+      "severity": "SUGGESTION",
+      "files_involved": [
+        "app/src/main/kotlin/com/angelstudio/angelskitchen/data/mapper/RecipeListMapper.kt"
+      ],
+      "evidence": "RecipeListMapper.kt:13-21 iterates recipe DTO records and maps recipe ID, title, and thumbnail URL. The matched variable 'record' is a recipe row, not a voice recording or voicemail. This code contains no audio capture, user audio data, or transmission of audio.",
+      "recommendation": "No AUDIO data collection is evidenced here; keep user audio out of recipe data flows and reassess if audio capture or upload is added.",
+      "is_transferred": false,
+      "user_initiated": false,
+      "is_third_party": false,
+      "prominent_disclosure_status": "EXEMPT",
+      "purpose": "Local recipe mapping; no audio data collection",
+      "linked_to_user": false
+    },
+    {
+      "psl_constant": "MUSIC",
+      "policy_id": "data_safety_section",
+      "issue_summary": "Data Safety Compliant (Local-Only)",
+      "severity": "SUGGESTION",
+      "files_involved": [
+        "app/src/main/kotlin/com/angelstudio/angelskitchen/data/mapper/RecipeMapper.kt"
+      ],
+      "evidence": "RecipeMapper.kt:79-99 validates YouTube video URLs and extracts a video ID; the matched 'music' text is only the hostname 'music.youtube.com' at line 85. It does not access a user's music files or transmit them.",
+      "recommendation": "No MUSIC data collection is evidenced here; reassess if the app later accesses or uploads user music files.",
+      "is_transferred": false,
+      "user_initiated": false,
+      "is_third_party": false,
+      "prominent_disclosure_status": "EXEMPT",
+      "purpose": "Local recipe metadata mapping; no user music data collection",
+      "linked_to_user": false
+    }
+  ]
+}
